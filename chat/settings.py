@@ -86,12 +86,14 @@ DATABASES = {
 """
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-DATABASES['default'] = dj_database_url.config()
+
+DATABASES = dj_database_url.config()
 
 try:
     from .local_settings import *
 except ImportError:
     pass
+
 
 
 STATIC_ROOT = 'staticfiles'
